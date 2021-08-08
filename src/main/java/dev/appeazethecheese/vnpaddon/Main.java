@@ -20,6 +20,7 @@ public class Main extends JavaPlugin {
 
     public Main() {
         StaticManager.Plugin = this;
+        StaticManager.Logger = this.getLogger();
     }
 
     @Override
