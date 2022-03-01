@@ -1,4 +1,4 @@
-package dev.appeazethecheese.vnpaddon;
+package dev.appeazethecheese.vnpaddon.spigot;
 
 import com.comphenix.protocol.ProtocolLibrary;
 import com.comphenix.protocol.ProtocolManager;
@@ -16,7 +16,7 @@ public class StaticManager {
     public static JavaPlugin Plugin = null;
     public static Logger Logger = null;
 
-    public static VanishManager getVnpManager() {
+    static VanishManager getVnpManager() {
         try {
             return ((VanishPlugin) Objects.requireNonNull(Bukkit.getPluginManager().getPlugin("VanishNoPacket"))).getManager();
         } catch (Exception e) {
@@ -25,11 +25,10 @@ public class StaticManager {
         }
     }
 
-    public static ProtocolManager getProtocolManager() {
+    static ProtocolManager getProtocolManager() {
         return ProtocolLibrary.getProtocolManager();
     }
-    public static boolean hasPermission(Player player){
+    static boolean hasPermission(Player player){
         return player.hasPermission("vanish.see");
     }
-
 }

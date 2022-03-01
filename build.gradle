@@ -2,7 +2,7 @@ plugins {
     id 'java'
 }
 
-group 'dev.appeazethecheese.vnpaddon'
+group 'dev.appeazethecheese'
 version '1.0'
 
 repositories {
@@ -19,8 +19,11 @@ repositories {
 }
 
 dependencies {
-    compileOnly 'org.spigotmc:spigot-api:1.15.2-R0.1-SNAPSHOT'
+    compileOnly 'org.spigotmc:spigot-api:1.17-R0.1-SNAPSHOT'
+    compileOnly 'net.md-5:bungeecord-api:1.17-R0.1-SNAPSHOT'
     implementation files("lib/VanishNoPacket.jar")
     implementation files("lib/ProtocolLib.jar")
 }
 
+sourceCompatibility = JavaVersion.VERSION_16
+targetCompatibility = JavaVersion.VERSION_16

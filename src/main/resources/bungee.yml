@@ -1,0 +1,4 @@
+name: VNPAddons
+main: dev.appeazethecheese.vnpaddon.bungee.Main
+version: 1.0.0
+author: AppeazeTheCheese
