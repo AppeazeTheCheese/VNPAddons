@@ -39,7 +39,7 @@ public class EventListener implements Listener {
         var suggestions = event.getSuggestions();
         var completionsToRemove = suggestions.stream().filter(completion -> vanishedPlayers.stream()
                 .anyMatch(player -> completion.toLowerCase(Locale.ROOT)
-                        .contains(player.toLowerCase(Locale.ROOT)))).collect(Collectors.toList());
+                        .contains(player.toLowerCase(Locale.ROOT)))).toList();
 
         event.getSuggestions().removeAll(completionsToRemove);
     }
