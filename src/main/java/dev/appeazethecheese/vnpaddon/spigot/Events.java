@@ -2,7 +2,6 @@ package dev.appeazethecheese.vnpaddon.spigot;
 
 import com.google.common.io.ByteStreams;
 import dev.appeazethecheese.vnpaddon.shared.Channels;
-import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -21,14 +20,14 @@ public class Events implements Listener {
     @EventHandler
     public void onTabComplete(TabCompleteEvent event) {
         if(getVnpManager() == null) return;
-        if(!(event instanceof Player)) return;
-        if(StaticManager.hasPermission((Player)event)) return;
+        if(!(event.getSender() instanceof Player player)) return;
+        if(StaticManager.hasSeeVanishedPermission(player)) return;
 
         Set<String> vanishedPlayers = getVnpManager().getVanishedPlayers();
         List<String> completions = event.getCompletions();
         completions = completions.stream().filter(completion -> vanishedPlayers.stream()
-                .noneMatch(player -> completion.toLowerCase(Locale.ROOT)
-                        .contains(player.toLowerCase(Locale.ROOT)))).collect(Collectors.toList());
+                .noneMatch(name -> completion.toLowerCase(Locale.ROOT)
+                        .contains(name.toLowerCase(Locale.ROOT)))).collect(Collectors.toList());
 
         event.setCompletions(completions);
     }

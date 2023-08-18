@@ -1,6 +1,7 @@
 main: dev.appeazethecheese.vnpaddon.spigot.Main
 name: VNPAddons
 version: '1.0'
-api-version: 1.17
+api-version: 1.19
 author: AppeazeTheCheese
-depend: [VanishNoPacket, ProtocolLib]
+depend: [VanishNoPacket, ProtocolLib, Vault]
+load: STARTUP

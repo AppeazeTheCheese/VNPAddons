@@ -2,6 +2,7 @@ package dev.appeazethecheese.vnpaddon.spigot;
 
 import com.comphenix.protocol.ProtocolLibrary;
 import com.comphenix.protocol.ProtocolManager;
+import net.milkbowl.vault.permission.Permission;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -28,7 +29,8 @@ public class StaticManager {
     static ProtocolManager getProtocolManager() {
         return ProtocolLibrary.getProtocolManager();
     }
-    static boolean hasPermission(Player player){
+    static boolean hasSeeVanishedPermission(Player player){
         return player.hasPermission("vanish.see");
     }
+    static boolean hasJoinVanishedPermission(Player player) { return player.hasPermission("vanish.joinvanished"); }
 }
