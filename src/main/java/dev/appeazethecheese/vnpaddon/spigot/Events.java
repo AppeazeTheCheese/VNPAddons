@@ -4,6 +4,7 @@ import com.google.common.io.ByteStreams;
 import dev.appeazethecheese.vnpaddon.shared.Channels;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.server.TabCompleteEvent;
 import org.kitteh.vanish.event.VanishStatusChangeEvent;
@@ -17,7 +18,7 @@ import static dev.appeazethecheese.vnpaddon.spigot.StaticManager.getVnpManager;
 
 public class Events implements Listener {
 
-    @EventHandler
+    @EventHandler(priority = EventPriority.HIGHEST)
     public void onTabComplete(TabCompleteEvent event) {
         if(getVnpManager() == null) return;
         if(!(event.getSender() instanceof Player player)) return;
@@ -32,7 +33,7 @@ public class Events implements Listener {
         event.setCompletions(completions);
     }
 
-    @EventHandler
+    @EventHandler(priority = EventPriority.LOWEST)
     public void onVanishStatusChange(VanishStatusChangeEvent event){
         var out = ByteStreams.newDataOutput();
         out.writeBoolean(event.isVanishing());
